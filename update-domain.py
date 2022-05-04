@@ -21,10 +21,10 @@ def get_args():
     return parser.parse_args()
 
 
-def get_current_ip(ip_check_address):
-    """ Gets the current ip_address from a website """
+def get_url_ip(ip_url):
+    """ Returns the IP given in raw text by the given URL """
     try:
-        request = requests.get(ip_check_address)
+        request = requests.get(ip_url)
     except ConnectionError:
         return False
 
