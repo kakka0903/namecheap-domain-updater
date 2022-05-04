@@ -14,6 +14,11 @@ def get_args():
                         help='URL that returns your public IP in raw text.',
                         required=False)
 
+    parser.add_argument('--ip',
+                        type=str,
+                        help='Specify the IP adress to set records to',
+                        required=False)
+
     parser.add_argument('domain',
                         action="store",
                         help='The domain name you want to update records for.',
