@@ -8,14 +8,26 @@ def get_args():
     """ Returns the parsed arguments given to the program. """
     # add commandline arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--check-ip-url', type=str,
-                        default='https://myexternalip.com/raw')
     parser.add_argument('--debug', action="store_true")
-    parser.add_argument('--domain', required=True,
-                        action="store", type=str)
-    parser.add_argument('--password', required=True,
-                        action="store", type=str)
-    parser.add_argument('--hosts', required=True, nargs='+')
+    parser.add_argument('--ip-url',
+                        type=str,
+                        default='https://myexternalip.com/raw',
+                        help='URL that returns your public IP in raw text.',
+                        required=False)
+
+    parser.add_argument('domain',
+                        action="store",
+                        help='The domain name you want to update records for.',
+                        type=str)
+
+    parser.add_argument('password',
+                        action="store",
+                        type=str,
+                        help='The "Dynamic DNS Password" for your namecheap domain.')
+
+    parser.add_argument('hosts',
+                        nargs='+',
+                        help='A list of "hosts" to update for your domain.')
 
     # retun given args
     return parser.parse_args()
