@@ -60,11 +60,13 @@ if __name__ == '__main__':
     ip = get_current_ip(args.check_ip_url)
 
     if not ip:
-        print("Could not get current ip address. Aborting")
+        print("could not get current ip address. aborting")
         exit()
 
     print(f"\nsetting {len(args.hosts)} records for {args.domain} to {ip}")
     for host in args.hosts:
         if not update_host(args.domain, host, ip, args.password):
-            print(f'  - update failed for: {host}')
-    print("done\n")
+            print(f'    update failed for: {host}')
+
+    print()
+    print("done!")
