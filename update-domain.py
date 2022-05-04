@@ -5,7 +5,7 @@ from xml.dom.minidom import parseString
 
 
 def get_args():
-    """ Gets given progam arguments """
+    """ Returns the parsed arguments given to the program. """
     # add commandline arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('--check-ip-url', type=str,
