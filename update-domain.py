@@ -73,7 +73,14 @@ def update_host(domain, host, ip, password):
 
 if __name__ == '__main__':
     args = get_args()
-    ip = get_current_ip(args.check_ip_url)
+
+    if args.ip:
+        ip = args.ip
+        print(f"using specified IP ({ip})")
+
+    elif args.ip_url:
+        ip = get_url_ip(args.ip_url)
+        print(f"using IP ({ip}) fetched from {args.ip_url}")
 
     if not ip:
         print("could not get current ip address. aborting")
