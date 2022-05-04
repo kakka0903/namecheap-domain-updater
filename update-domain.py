@@ -8,7 +8,6 @@ def get_args():
     """ Returns the parsed arguments given to the program. """
     # add commandline arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--debug', action="store_true")
     parser.add_argument('--ip-url',
                         type=str,
                         default='https://myexternalip.com/raw',
